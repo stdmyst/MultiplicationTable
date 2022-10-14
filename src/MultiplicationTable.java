@@ -1,13 +1,17 @@
+import java.util.Scanner;
+
 public class MultiplicationTable {
     public static void main(String[] args) {
-        int n = 15; // горизонталь
-        int m = 2224; // вертикаль
-        // должны вводиться пользователем, но я не разобрался, какой метод использовать
+        Scanner n0 = new Scanner(System.in);
+        Scanner m0 = new Scanner(System.in);
+        int n = n0.nextInt(); // горизонталь
+        int m = m0.nextInt(); // вертикаль
 
-        for (int j = 1; j <= m; j++) { // сперва проходимся по горизонтали
-            for (int i = 1; i <= n; i++) { // идём вниз
-                int m1 = i * j; // получаемое произведение на данном шаге
+        for (int j = 1; j <= m; j++) { // вертикаль -> шаг вниз
+            for (int i = 1; i <= n; i++) { // горизонталь -> шаг вправо
+                int m1 = i * j; // произведение m*n на данном шаге
                 int mn = i * m; // максимальное произведение в данном столбце
+
                 String str1 = String.valueOf(m1);
                 String str = String.valueOf(mn);
                 int indent = (str.length() - str1.length()) + 1; // отступ - разность длин максимального и опредёленного на данном шаге произведений (+ 1, т.к. не должен быть равен 0)
